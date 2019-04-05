@@ -47,8 +47,13 @@ public class CadenaTextoString {
 	}
 
 	public static String darVuelta(String cadena) {
-		// TODO implementar
-		return "";
+		String resul = "";
+		if (cadena != null) {
+			for (int i = 0; i < cadena.length(); i++) {
+				resul += cadena.charAt(cadena.length() - i - 1);
+			}
+		}
+		return resul;
 	}
 
 }
