@@ -18,13 +18,37 @@ public class CadenaTextoString {
 		System.out.println("mayusculas: " + cadenaLimpia.toUpperCase());
 		System.out.println("sbustring: " + cadenaLimpia.substring(2, 4));
 
-		System.out.println(" \"asa\" cuantas 'a's tiene: " + contarLetras("asa", 'a'));
+		System.out.println(" \"asa\" cuantas 'a's tiene: " + contarLetras("Asa", 'a'));
+
+		System.out.println(" \"asa\" cuantas 'a's tiene: " + contarLetras(null, 'a'));
 
 	}
 
-	static int contarLetras(String cadena, char letra) {
+	/**
+	 * Cuenta las letras de una palabra, es caseInsensitive le da igual mayusculas
+	 * que minusculas
+	 * 
+	 * @param cadena String palabra a contar las letras
+	 * @param letra  char letra a contar
+	 * @return int letras contadas
+	 */
+	public static int contarLetras(String cadena, char letra) {
 
-		return 0;
+		int resul = 0;
+		if (cadena != null && Character.isLetter(letra)) {
+			for (int i = 0; i < cadena.length(); i++) {
+				char letraActual = cadena.charAt(i);
+				if (Character.toUpperCase(letraActual) == Character.toUpperCase(letra)) {
+					resul++;
+				}
+			}
+		}
+		return resul;
+	}
+
+	public static String darVuelta(String cadena) {
+		// TODO implementar
+		return "";
 	}
 
 }
