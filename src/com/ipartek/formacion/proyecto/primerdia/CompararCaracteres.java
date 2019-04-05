@@ -2,6 +2,12 @@ package com.ipartek.formacion.proyecto.primerdia;
 
 import java.util.Scanner;
 
+/**
+ * Estos comentatios de bloque son para comentar
+ * 
+ * @author ur00
+ *
+ */
 public class CompararCaracteres {
 
 	public static void main(String[] args) {

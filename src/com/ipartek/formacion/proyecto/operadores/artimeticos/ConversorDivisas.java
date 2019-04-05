@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class ConversorDivisas {
 
-	public static void main(String[] args) {
+	// variables globales para todos los metodos
+	static final float VALOR_DOLAR = (float) 1.12;
+	static final float VALOR_BITCOIN = (float) 4496.39;
 
-		final float VALOR_DOLAR = (float) 1.12;
-		final float VALOR_BITCOIN = (float) 4496.39;
+	public static void main(String[] args) {
 
 		final int OPCION_EUROS = 1;
 		final int OPCION_BITCOIN = 2;
@@ -17,10 +18,7 @@ public class ConversorDivisas {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("----------------------------------------");
-		System.out.println(String.format("1)    %s € = %f $", 1, VALOR_DOLAR));
-		System.out.println(String.format("2)    %s bitcoin = %.2f €", 1, VALOR_BITCOIN));
-		System.out.println("----------------------------------------");
+		pintarMenu();
 
 		do {
 			System.out.println(
@@ -48,5 +46,14 @@ public class ConversorDivisas {
 		sc.close();
 
 	}// end main
+
+	private static void pintarMenu() {
+
+		System.out.println("----------------------------------------");
+		System.out.println(String.format("1)    %s € = %f $", 1, VALOR_DOLAR));
+		System.out.println(String.format("2)    %s bitcoin = %.2f €", 1, VALOR_BITCOIN));
+		System.out.println("----------------------------------------");
+
+	}
 
 }

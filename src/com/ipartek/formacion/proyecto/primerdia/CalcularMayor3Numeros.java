@@ -2,6 +2,12 @@ package com.ipartek.formacion.proyecto.primerdia;
 
 import java.util.Scanner;
 
+/**
+ * Ejemplo para calcular numeros
+ * 
+ * @author ur00
+ *
+ */
 public class CalcularMayor3Numeros {
 
 	public static void main(String[] args) {
@@ -36,7 +42,7 @@ public class CalcularMayor3Numeros {
 	 * @param n3 int 3º numero
 	 * @return el mayor de los 3 parametros de entrada
 	 */
-	static int buscarMayor(int n1, int n2, int n3) {
+	public static int buscarMayor(int n1, int n2, int n3) {
 
 		int resultado = -1;
 
