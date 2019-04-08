@@ -9,8 +9,8 @@ public class ArraysFunciones {
 	 ***************************************************************/
 
 	static String dias[] = new String[7];
-
 	static int diaSeleccionado;
+	static Scanner sc = new Scanner(System.in);
 
 	/*
 	 * metodos o funciones
@@ -20,8 +20,10 @@ public class ArraysFunciones {
 
 		inicializarDatos();
 		pedirOpciones();
+		pedirOpciones2();
 		pintarResultado();
 
+		sc.close();
 	}
 
 	private static void inicializarDatos() {
@@ -36,11 +38,14 @@ public class ArraysFunciones {
 
 	private static void pedirOpciones() {
 
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Dime el numero de la semana del 1 al 7");
 		diaSeleccionado = sc.nextInt();
+	}
 
-		sc.close();
+	private static void pedirOpciones2() {
+
+		System.out.println("Dime el numero de la semana del 1 al 7");
+		diaSeleccionado = sc.nextInt();
 	}
 
 	private static void pintarResultado() {
