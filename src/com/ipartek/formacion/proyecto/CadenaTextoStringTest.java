@@ -1,6 +1,8 @@
 package com.ipartek.formacion.proyecto;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -24,6 +26,19 @@ public class CadenaTextoStringTest {
 		assertEquals("", CadenaTextoString.darVuelta(""));
 		assertEquals("aloh", CadenaTextoString.darVuelta("hola"));
 		assertEquals(" aloh ", CadenaTextoString.darVuelta(" hola "));
+
+	}
+
+	@Test
+	public void testIsPalindromo() {
+
+		assertFalse("caso null", CadenaTextoString.isPalindromo(null));
+		assertFalse("cadena vacia", CadenaTextoString.isPalindromo(""));
+		assertFalse(CadenaTextoString.isPalindromo("anaa"));
+
+		assertTrue("caso simple", CadenaTextoString.isPalindromo("ana"));
+		assertTrue("mayusculas y minusculas", CadenaTextoString.isPalindromo("Ana"));
+		assertTrue("espacios en blanco", CadenaTextoString.isPalindromo(" Ana  "));
 
 	}
 

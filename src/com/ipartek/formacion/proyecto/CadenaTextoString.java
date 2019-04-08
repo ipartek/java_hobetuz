@@ -56,4 +56,24 @@ public class CadenaTextoString {
 		return resul;
 	}
 
+	/**
+	 * Indica si la paralabra es palidroma o no <br>
+	 * Es caseInsensitive <br>
+	 * Trima los espacios en blanco a derecha e izquierda
+	 * 
+	 * @param cadena String con la palabra o frase a determinar si es palindroma
+	 * @return boolean caso especiales null y cadena vacia "" return false
+	 */
+	public static boolean isPalindromo(String cadena) {
+		boolean resul = false;
+		if (cadena != null && !"".equals(cadena)) {
+
+			String cadenaDadaVuelta = darVuelta(cadena).toLowerCase().trim();
+			if (cadena.toLowerCase().trim().equals(cadenaDadaVuelta)) {
+				resul = true;
+			}
+		}
+		return resul;
+	}
+
 }
