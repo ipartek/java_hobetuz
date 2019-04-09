@@ -60,7 +60,6 @@ public class ControlEntradaDatos {
 
 			} catch (Exception e) {
 				isException = true;
-
 			}
 
 		} while (isException);
