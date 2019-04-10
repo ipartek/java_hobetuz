@@ -2,6 +2,7 @@ package com.ipartek.formacion.proyecto.excel;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Date;
 import java.util.Iterator;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -31,8 +32,14 @@ public class LeerExcelKorrika1 {
 				XSSFCell celNombre = fila.getCell(0);
 				XSSFCell celTiempo = fila.getCell(1);
 
-				System.out.println(celNombre.getStringCellValue());
-				System.out.println(celTiempo.getNumericCellValue());
+				String lugar = celNombre.getStringCellValue();
+				Date dateTiempo = celTiempo.getDateCellValue();
+
+				int horas = dateTiempo.getHours();
+				int minutos = dateTiempo.getMinutes();
+
+				System.out.printf("%-20s %s:%s \n", lugar, horas, minutos);
+
 			}
 			cont++;
 
