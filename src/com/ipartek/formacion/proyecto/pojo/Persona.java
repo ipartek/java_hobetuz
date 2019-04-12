@@ -1,4 +1,4 @@
-package com.ipartek.formacion.proyecto.poo;
+package com.ipartek.formacion.proyecto.pojo;
 
 public class Persona {
 
