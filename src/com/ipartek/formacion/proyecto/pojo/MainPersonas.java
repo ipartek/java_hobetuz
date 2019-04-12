@@ -6,6 +6,17 @@ public class MainPersonas {
 
 	public static void main(String[] args) {
 
+		/*
+		 * JFrame frame = new JFrame(); ImageIcon icon = new
+		 * ImageIcon("C:\\hobetuz\\projecto\\resources\\images\\gato.png"); JLabel label
+		 * = new JLabel(icon); frame.add(label);
+		 * frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		 * 
+		 * JLabel labelNombre = new JLabel("Nombre"); frame.add(labelNombre);
+		 * 
+		 * frame.pack(); frame.setVisible(true);
+		 */
+
 		Persona pepe = new Persona();
 		// pepe.nombre = "Pepe Gotera";
 		pepe.setNombre("Pepe Gotera");

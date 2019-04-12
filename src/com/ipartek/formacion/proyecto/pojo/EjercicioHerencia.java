@@ -16,6 +16,14 @@ public class EjercicioHerencia {
 		Gato g3 = new Gato("Mitxi", "Persa");
 		System.out.println(g3);
 
+		Perro p = new Perro("Rumble", "boxer");
+		System.out.println(p);
+		System.out.println(p.sonido());
+
+		PerroPresa p2 = new PerroPresa("Buba", "Pitbul");
+		System.out.println(p2);
+		System.out.println(p2.sonido());
+
 	}
 
 }

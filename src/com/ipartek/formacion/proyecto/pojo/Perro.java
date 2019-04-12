@@ -16,64 +16,40 @@ package com.ipartek.formacion.proyecto.pojo;
  * @author ur00
  *
  */
-public class Perro {
+public class Perro extends Animal {
 
-	// Atributos
-
-	private String nombre;
-	private String raza;
-
-	// Constructores para crear objetos
-
-	// constrcutor por defecto
-	public Perro() {
-		super();
-		this.nombre = "";
-		this.raza = "cruce";
-	}
-
-	// construstor con parametros, estamos sobrecargando ( mismo return, mismo
-	// nombre, pero diferentes parametros)
-
-	public Perro(String nombre) {
-		this();
-		// super();
-		this.nombre = nombre;
-	}
+	private boolean salirCalle;
 
 	public Perro(String nombre, String raza) {
-		// super();
-		this();
-		this.nombre = nombre;
-		this.raza = raza;
+		super(nombre);
+		setRaza(raza);
+		setSalirCalle(false);
 	}
 
-	// getters y setters para los atributos
-
-	public String getNombre() {
-		return nombre;
+	public Perro() {
+		super();
 	}
 
-	public String getRaza() {
-		return raza;
+	public Perro(String nombre) {
+		super(nombre);
 	}
 
-	public void setRaza(String raza) {
-		this.raza = raza;
+	public boolean isSalirCalle() {
+		return salirCalle;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setSalirCalle(boolean salirCalle) {
+		this.salirCalle = salirCalle;
+	}
+
+	@Override
+	public String sonido() {
+		return "Gua gua";
 	}
 
 	@Override
 	public String toString() {
-		return "Perro [nombre=" + nombre + ", raza=" + raza + "]";
-	}
-
-	// otros metodos
-	public String ladrar() {
-		return "gua gua";
+		return super.toString() + " Perro [salirCalle=" + salirCalle + "]";
 	}
 
 }
