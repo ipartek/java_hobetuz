@@ -32,10 +32,12 @@ public class MainPersonas {
 		System.out.println(chase);
 
 		Gato garfield = new Gato();
+		garfield.setPeso(67.4f);
 		System.out.println(garfield);
 
-		Gato mitxi = new Gato("Mitxi");
-		System.out.println(mitxi);
+		/*
+		 * Gato mitxi = new Gato("Mitxi"); System.out.println(mitxi);
+		 */
 
 		// pedir datos para crear un gato
 

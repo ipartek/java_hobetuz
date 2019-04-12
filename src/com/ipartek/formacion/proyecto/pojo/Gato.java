@@ -1,60 +1,44 @@
 package com.ipartek.formacion.proyecto.pojo;
 
-public class Gato {
+public class Gato extends Animal {
 
-	private String nombre;
-	private String raza;
-	private float peso;
-	private boolean vacunado;
+	boolean cascabel;
 
 	public Gato() {
 		super();
-		this.nombre = "";
-		this.raza = "cruce";
-		this.peso = 0;
-		this.vacunado = false;
+		this.cascabel = false;
 	}
 
 	public Gato(String nombre) {
-		this();
-		this.nombre = nombre;
+		super(nombre);
+		this.cascabel = false;
+		this.setRaza("cruce");
 	}
 
-	public String getNombre() {
-		return nombre;
+	public Gato(String nombre, String raza) {
+		super(nombre);
+		this.cascabel = false;
+		this.setRaza(raza);
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public boolean isCascabel() {
+		return cascabel;
 	}
 
-	public String getRaza() {
-		return raza;
+	public void setCascabel(boolean cascabel) {
+		this.cascabel = cascabel;
 	}
 
-	public void setRaza(String raza) {
-		this.raza = raza;
-	}
-
-	public float getPeso() {
-		return peso;
-	}
-
-	public void setPeso(float peso) {
-		this.peso = peso;
-	}
-
-	public boolean isVacunado() {
-		return vacunado;
-	}
-
-	public void setVacunado(boolean vacunado) {
-		this.vacunado = vacunado;
+	@Override
+	public String sonido() {
+		// return super.sonido();
+		return "Miauuuuuuuuuuuuuuuuuuuuuu";
 	}
 
 	@Override
 	public String toString() {
-		return "Gato [nombre=" + nombre + ", raza=" + raza + ", peso=" + peso + ", vacunado=" + vacunado + "]";
+
+		return super.toString() + " Gato [cascabel=" + cascabel + "]";
 	}
 
 }
