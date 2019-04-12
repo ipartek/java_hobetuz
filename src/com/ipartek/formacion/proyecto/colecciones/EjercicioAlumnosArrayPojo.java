@@ -1,5 +1,7 @@
 package com.ipartek.formacion.proyecto.colecciones;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import com.ipartek.formacion.proyecto.pojo.Alumno;
@@ -23,8 +25,10 @@ public class EjercicioAlumnosArrayPojo {
 	static final String OP_REPETIR = "s";
 	static final String OP_REPETIR_2 = "si";
 	static final String OP_LISTAR = "1";
-	static final String OP_BUSCAR_NOMBRE = "2";
-	static final String OP_BUSCAR_POSICION = "3";
+	static final String OP_LISTAR_APROBADOS = "2";
+	static final String OP_LISTAR_SUSPENDIDOS = "3";
+	static final String OP_BUSCAR_NOMBRE = "4";
+	static final String OP_BUSCAR_POSICION = "5";
 
 	static boolean repetir = false;
 
@@ -39,6 +43,14 @@ public class EjercicioAlumnosArrayPojo {
 			switch (opSeleccionada) {
 			case OP_LISTAR:
 				listar();
+				break;
+
+			case OP_LISTAR_APROBADOS:
+				listarFiltro(true);
+				break;
+
+			case OP_LISTAR_SUSPENDIDOS:
+				listarFiltro(false);
 				break;
 
 			case OP_BUSCAR_NOMBRE:
@@ -123,8 +135,35 @@ public class EjercicioAlumnosArrayPojo {
 		System.out.println("\n \n 1. Listado alumnos");
 		System.out.println("-----------------------------------");
 
-		for (int i = 0; i < alumnos.length; i++) {
-			System.out.printf("%s - %s \n", i, alumnos[i]);
+		ArrayList<String> lista = new ArrayList<String>();
+
+		for (Alumno a : alumnos) {
+			lista.add(a.getNombre());
+		}
+
+		Collections.sort(lista);
+
+		for (String nombre : lista) {
+			System.out.println(nombre);
+		}
+
+	}
+
+	/**
+	 * Listado de alumnos pero filtrado
+	 * 
+	 * @param aprobados boolean
+	 */
+	private static void listarFiltro(boolean aprobados) {
+
+		System.out.printf("\n \n 1. Listado alumnos %s", (aprobados) ? " aprobados" : "suspendidos");
+		System.out.println("-----------------------------------");
+
+		for (Alumno a : alumnos) {
+
+			if (a.isAprobado() == aprobados) {
+				System.out.println(a);
+			}
 		}
 
 	}

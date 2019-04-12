@@ -42,6 +42,10 @@ public class Alumno {
 		}
 	}
 
+	public boolean isAprobado() {
+		return (this.nota >= 5) ? true : false;
+	}
+
 	@Override
 	public String toString() {
 		return "Alumno [nombre=" + nombre + ", apellidos=" + apellidos + ", nota=" + nota + "]";
