@@ -1,6 +1,6 @@
 package com.ipartek.formacion.proyecto.pojo;
 
-public class Pais implements Comparable<Pais> {
+public class Pais implements Comparable<Pais>, ISaludar, Ordenable {
 
 	private String nombre;
 	private float poblacion; // millones de personas
@@ -73,6 +73,16 @@ public class Pais implements Comparable<Pais> {
 	public int compareTo(Pais o) {
 		float p = this.getPoblacion() - o.getPoblacion();
 		return (p >= 0) ? 1 : -1;
+	}
+
+	@Override
+	public String saludar() {
+		return "Soy " + this.nombre;
+	}
+
+	@Override
+	public float getValor() {
+		return this.getPoblacion();
 	}
 
 }

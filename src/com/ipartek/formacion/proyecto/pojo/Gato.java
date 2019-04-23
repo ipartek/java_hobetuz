@@ -1,6 +1,6 @@
 package com.ipartek.formacion.proyecto.pojo;
 
-public class Gato extends Animal {
+public class Gato extends Animal implements ISaludar, Ordenable {
 
 	boolean cascabel;
 
@@ -39,6 +39,16 @@ public class Gato extends Animal {
 	public String toString() {
 
 		return super.toString() + " Gato [cascabel=" + cascabel + "]";
+	}
+
+	@Override
+	public String saludar() {
+		return "Miauuuuuuuuuuuuuuu";
+	}
+
+	@Override
+	public float getValor() {
+		return this.getPeso();
 	}
 
 }
