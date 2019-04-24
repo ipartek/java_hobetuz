@@ -14,9 +14,15 @@ public class GatoArrayListDAO implements IPersistible<Gato> {
 	}
 
 	@Override
-	public Gato getByNombre(String nombre) {
-		// TODO recorrer lista hasta encontrar nombre del gato
-		return null;
+	public Gato getById(int id) {
+		Gato resul = null;
+		for (Gato g : lista) {
+			if (g.getId() == id) {
+				resul = g;
+				break;
+			}
+		}
+		return resul;
 	}
 
 	@Override
@@ -44,9 +50,18 @@ public class GatoArrayListDAO implements IPersistible<Gato> {
 	}
 
 	@Override
-	public boolean update(Gato g) {
-		// TODO buscar y mofificar
-		return false;
+	public boolean update(Gato gModificar) {
+		boolean resul = false;
+		if (gModificar != null) {
+			for (Gato gIteracion : lista) {
+				if (gIteracion.getId() == gModificar.getId()) {
+					gIteracion = gModificar;
+					resul = true;
+					break;
+				}
+			}
+		}
+		return resul;
 	}
 
 }

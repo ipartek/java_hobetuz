@@ -21,6 +21,11 @@ public class Gato extends Animal implements ISaludar, Ordenable {
 		this.setRaza(raza);
 	}
 
+	public Gato(int id, String nombre) {
+		super(nombre);
+		this.setId(id);
+	}
+
 	public boolean isCascabel() {
 		return cascabel;
 	}

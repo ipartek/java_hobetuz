@@ -2,6 +2,7 @@ package com.ipartek.formacion.proyecto.pojo;
 
 public class Animal {
 
+	private int id;
 	private String nombre;
 	private String raza;
 	private float peso;
@@ -9,8 +10,9 @@ public class Animal {
 
 	public Animal() {
 		super(); // Object
+		this.id = -1;
 		this.nombre = "";
-		this.raza = "";
+		this.raza = "cruce";
 		this.peso = 0;
 		this.vacunado = false;
 	}
@@ -18,6 +20,14 @@ public class Animal {
 	public Animal(String nombre) {
 		this();
 		this.nombre = nombre;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -58,7 +68,8 @@ public class Animal {
 
 	@Override
 	public String toString() {
-		return "Animal [nombre=" + nombre + ", raza=" + raza + ", peso=" + peso + ", vacunado=" + vacunado + "]";
+		return "Animal [id=" + id + ", nombre=" + nombre + ", raza=" + raza + ", peso=" + peso + ", vacunado="
+				+ vacunado + "]";
 	}
 
 }

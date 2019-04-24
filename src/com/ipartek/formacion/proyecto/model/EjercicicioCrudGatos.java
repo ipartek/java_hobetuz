@@ -28,8 +28,8 @@ public class EjercicicioCrudGatos {
 
 		// objeto para gestionar el CRUD de los gatos
 
-		dao.create(new Gato("Garfield"));
-		dao.create(new Gato("Mitxi"));
+		dao.create(new Gato(1, "Garfield"));
+		dao.create(new Gato(2, "Mitxi"));
 
 		do {
 			printarMenu();
@@ -79,7 +79,27 @@ public class EjercicicioCrudGatos {
 	}
 
 	private static void modificar() {
-		// TODO Auto-generated method stub
+
+		// buscar gato a modificar
+		String identificador = JOptionPane.showInputDialog("Dime la posicion del Gato");
+		int id = Integer.parseInt(identificador);
+		Gato gatoModificar = dao.getById(id);
+
+		if (gatoModificar != null) {
+
+			// pedir datos para modificar
+			String nombreModificar = JOptionPane.showInputDialog("Dime el nuevo Nombre");
+			gatoModificar.setNombre(nombreModificar);
+
+			if (dao.update(gatoModificar)) {
+				System.out.println("Gato Modificado");
+			} else {
+				System.out.println("ERROR Modificacion gato");
+			}
+
+		} else {
+			System.out.println("No existe gato en esa posicion");
+		}
 
 	}
 

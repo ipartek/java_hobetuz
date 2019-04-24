@@ -7,17 +7,18 @@ import java.util.ArrayList;
  * 
  * @author ur00
  *
+ * 
  */
-public interface IPersistible<Gato> {
+public interface IPersistible<P> {
 
-	ArrayList<Gato> getAll();
+	ArrayList<P> getAll();
 
-	Gato getByNombre(String nombre);
+	P getById(int id);
 
-	boolean create(Gato g);
+	boolean create(P pojo);
 
-	boolean delete(Gato g);
+	boolean delete(P pojo);
 
-	boolean update(Gato g);
+	boolean update(P pojo);
 
 }
