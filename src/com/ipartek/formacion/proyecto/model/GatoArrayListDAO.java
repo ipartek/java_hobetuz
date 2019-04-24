@@ -26,8 +26,21 @@ public class GatoArrayListDAO implements IPersistible<Gato> {
 
 	@Override
 	public boolean delete(Gato g) {
-		// TODO remove
-		return false;
+		boolean resul = false;
+		if (g != null) {
+
+			Gato gato = null;
+			for (int i = 0; i < lista.size(); i++) {
+				gato = lista.get(i);
+				if (gato.getNombre().equalsIgnoreCase(g.getNombre())) {
+					lista.remove(i);
+					resul = true;
+					break;
+				}
+			} // for
+
+		}
+		return resul;
 	}
 
 	@Override

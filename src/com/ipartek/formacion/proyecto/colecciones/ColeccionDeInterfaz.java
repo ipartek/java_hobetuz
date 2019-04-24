@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.ipartek.formacion.proyecto.pojo.Gato;
-import com.ipartek.formacion.proyecto.pojo.ISaludar;
+import com.ipartek.formacion.proyecto.pojo.Ordenable;
 import com.ipartek.formacion.proyecto.pojo.Pais;
 import com.ipartek.formacion.proyecto.pojo.PaisGatoComparator;
 
 public class ColeccionDeInterfaz {
 
-	public static ArrayList<ISaludar> lista;
+	public static ArrayList<Ordenable> lista;
 
 	public static void main(String[] args) {
 
-		lista = new ArrayList<ISaludar>();
+		lista = new ArrayList<Ordenable>();
 
 		Gato gato = new Gato();
 		gato.setNombre("Garfiled");
@@ -29,9 +29,9 @@ public class ColeccionDeInterfaz {
 
 		System.out.println(lista);
 
-		for (ISaludar elemento : lista) {
+		for (Ordenable elemento : lista) {
 
-			System.out.println(elemento.saludar());
+			// System.out.println(elemento.saludar());
 
 			if (elemento instanceof Gato) {
 				Gato e = (Gato) elemento;
@@ -43,7 +43,7 @@ public class ColeccionDeInterfaz {
 		} // for
 
 		Collections.sort(lista, new PaisGatoComparator());
-
+		System.out.println(lista);
 //		lista.sort(new PaisGatoComparator());
 
 	}
