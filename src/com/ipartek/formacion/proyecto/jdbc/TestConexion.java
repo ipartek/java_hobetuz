@@ -6,6 +6,27 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/*
+	SENTENCIAS SQL PARA REALIZAR UN CRUD
+
+	-- listado de todos los gatos de la tabla
+	SELECT id, nombre FROM gato ORDER BY nombre ASC;
+	
+	-- detalle de un solo gato
+	SELECT id, nombre FROM gato WHERE id = 2;
+	
+	-- eliminar registro
+	DELETE FROM gato WHERE id = 4;
+	
+	
+	-- modificar un gato
+	UPDATE gato SET nombre = 'Garfield' WHERE id = 1;
+	
+	-- insertar nuevo gato
+	INSERT INTO gato (nombre) VALUES ('Nuevo Gato');
+
+*/
+
 public class TestConexion {
 
 	// static final String BD_NOMBRE = "tienda_animales";
@@ -49,6 +70,7 @@ public class TestConexion {
 
 			System.out.println("ERROR al acceder a la base datos");
 			e.printStackTrace();
+
 		} catch (ClassNotFoundException e) {
 			System.out.println("Se te ha olvidado el driver, mete el .jar en el proyecto");
 			e.printStackTrace();
