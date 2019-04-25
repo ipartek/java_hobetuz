@@ -105,7 +105,7 @@ public class GatoDAO implements IPersistible<Gato> {
 					// recuperar el ID generado
 					ResultSet rs = pst.getGeneratedKeys();
 					while (rs.next()) {
-						int idGenerada = rs.getInt(2);
+						int idGenerada = rs.getInt(1);
 						pojo.setId(idGenerada);
 						resul = true;
 					}
