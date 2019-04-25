@@ -10,7 +10,8 @@ public class EjercicicioCrudGatos {
 
 	static Scanner sc = new Scanner(System.in);
 
-	static GatoArrayListDAO dao = new GatoArrayListDAO();
+	// static GatoArrayListDAO dao = new GatoArrayListDAO();
+	static GatoDAO dao = new GatoDAO();
 
 	// posibles opciones del usuario
 	static final String OP_REPETIR = "s";
