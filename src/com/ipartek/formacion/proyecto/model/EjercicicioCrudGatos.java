@@ -40,6 +40,10 @@ public class EjercicicioCrudGatos {
 				listar();
 				break;
 
+			case OP_BUSCAR_NOMBRE:
+				buscarPorNombre();
+				break;
+
 			case OP_CREAR:
 				crear();
 				break;
@@ -61,6 +65,16 @@ public class EjercicicioCrudGatos {
 		} while (repetir);
 
 		System.out.println("Agur, gracias por la visita");
+
+	}
+
+	private static void buscarPorNombre() {
+
+		String nombre = JOptionPane.showInputDialog("Dime el Nombre del Gato");
+
+		Gato g = dao.getByName(nombre);
+
+		System.out.println(g);
 
 	}
 
