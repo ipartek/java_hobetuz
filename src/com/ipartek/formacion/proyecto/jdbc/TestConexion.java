@@ -35,7 +35,7 @@ public class TestConexion {
 
 	static final String BD_USUARIO = "root";
 	static final String BD_PASS = "";
-	static final String BD_URL = "jdbc:mysql://192.168.0.47:3306/tienda_animales?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	static final String BD_URL = "jdbc:mysql://192.168.0.47:3306/tienda_animales";
 
 	public static void main(String[] args) {
 
