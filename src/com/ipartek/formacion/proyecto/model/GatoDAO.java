@@ -1,5 +1,6 @@
 package com.ipartek.formacion.proyecto.model;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +16,7 @@ public class GatoDAO implements IPersistible<Gato> {
 	static final String SQL_GET_ALL = "SELECT id, nombre from gato ORDER BY id DESC;";
 	static final String SQL_GET_BY_ID = "SELECT id, nombre from gato WHERE id = ?;";
 	static final String SQL_GET_BY_NOMBRE = "SELECT id, nombre from gato WHERE nombre = ? ORDER BY id DESC LIMIT 1;";
+	static final String SQL_GET_BY_NOMBRE_PA = "{ call paGatoBuscarPorNombre(?) }";
 	static final String SQL_INSERT = "INSERT INTO `gato` (`nombre`) VALUES (?);";
 
 	@Override
@@ -65,6 +67,29 @@ public class GatoDAO implements IPersistible<Gato> {
 			e.printStackTrace();
 		}
 		return gato;
+	}
+
+	public ArrayList<Gato> getByNameProcedimientoAlamcenado(String nombre) {
+
+		ArrayList<Gato> lista = new ArrayList<Gato>();
+		try (Connection con = ConnectionManager.getConexion();
+				CallableStatement cst = con.prepareCall(SQL_GET_BY_NOMBRE_PA)) {
+
+			// cambiamos ? por parametro nombre
+			cst.setString(1, nombre);
+
+			try (ResultSet rs = cst.executeQuery()) {
+				while (rs.next()) {
+					int id = rs.getInt("id");
+					String nom = rs.getString("nombre");
+					lista.add(new Gato(id, nom));
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 	public Gato getByName(String nombre) {

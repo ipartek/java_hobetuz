@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         localhost
--- Versi√≥n del servidor:         10.1.38-MariaDB - mariadb.org binary distribution
+-- VersiÛn del servidor:         10.1.38-MariaDB - mariadb.org binary distribution
 -- SO del servidor:              Win64
--- HeidiSQL Versi√≥n:             9.4.0.5125
+-- HeidiSQL VersiÛn:             9.4.0.5125
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -21,38 +21,24 @@ CREATE TABLE IF NOT EXISTS `gato` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla tienda_animales.gato: ~9 rows (aproximadamente)
+-- Volcando datos para la tabla tienda_animales.gato: ~34 rows (aproximadamente)
 DELETE FROM `gato`;
 /*!40000 ALTER TABLE `gato` DISABLE KEYS */;
 INSERT INTO `gato` (`id`, `nombre`) VALUES
-	(20, 'Sergi'),
-	(21, 'Cari√±o'),
-	(22, 'gato'),
-	(23, 'Soy sara'),
-	(24, 'Croasan con mermelada'),
 	(25, 'Yate'),
 	(26, 'Sarapova'),
-	(27, 'Bisartxo'),
-	(28, 'Ratatata_Pun'),
-	(29, 'JUAN'),
 	(30, 'TRISKIMISKI'),
 	(32, 'Nuevo Gato'),
 	(33, 'Misssi'),
-	(34, 'Nuevo Gato'),
 	(35, 'Nuevo Gato'),
 	(36, 'Misssi'),
 	(37, 'Garfield'),
-	(39, 'Garfieldfdfdfdfdfdfdf'),
-	(40, 'Mitxi'),
-	(41, 'null'),
 	(42, 'Garfield'),
-	(43, 'Mitxi'),
 	(44, 'DKing'),
 	(45, 'ander'),
 	(46, 'Garfield'),
-	(47, 'Mitxi'),
 	(48, 'Napoleon'),
 	(49, 'Diosdado The King'),
 	(50, 'MikelMitixi'),
@@ -65,8 +51,31 @@ INSERT INTO `gato` (`id`, `nombre`) VALUES
 	(57, 'dos'),
 	(58, 'otro gato'),
 	(59, 'ultimo gato'),
-	(60, 'sadfdsafsdfsd');
+	(60, 'sadfdsafsdfsd'),
+	(62, 'Garfield'),
+	(63, 'MitxiASD'),
+	(64, 'FelixElGato'),
+	(65, 'Garfield'),
+	(67, 'Felix2'),
+	(68, 'Garfield'),
+	(70, 'izuuuuu'),
+	(72, 'rata'),
+	(73, ''),
+	(74, 'PAPAPAPA');
 /*!40000 ALTER TABLE `gato` ENABLE KEYS */;
+
+-- Volcando estructura para procedimiento tienda_animales.paGatoBuscarPorNombre
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `paGatoBuscarPorNombre`(
+	IN `pNombre` VARCHAR(150)
+)
+BEGIN
+
+
+	SELECT id, nombre FROM gato WHERE nombre like CONCAT('%',pNombre,'%');
+
+END//
+DELIMITER ;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

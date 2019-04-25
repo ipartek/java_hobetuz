@@ -1,5 +1,6 @@
 package com.ipartek.formacion.proyecto.model;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -67,9 +68,14 @@ public class EjercicicioCrudGatos {
 
 		String nombre = JOptionPane.showInputDialog("Dime el Nombre del Gato");
 
-		Gato g = dao.getByName(nombre);
+		// Gato g = dao.getByName(nombre);
+		ArrayList<Gato> lista = dao.getByNameProcedimientoAlamcenado(nombre);
 
-		System.out.println(g);
+		System.out.println("Gatos encontrados: " + lista.size());
+		System.out.println("-----------------------------------");
+		for (Gato g : lista) {
+			System.out.println(g);
+		}
 
 	}
 
