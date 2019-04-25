@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.ipartek.formacion.proyecto.jdbc.ConnectionManager;
@@ -14,6 +15,7 @@ public class GatoDAO implements IPersistible<Gato> {
 	static final String SQL_GET_ALL = "SELECT id, nombre from gato ORDER BY id DESC;";
 	static final String SQL_GET_BY_ID = "SELECT id, nombre from gato WHERE id = ?;";
 	static final String SQL_GET_BY_NOMBRE = "SELECT id, nombre from gato WHERE nombre = ? ORDER BY id DESC LIMIT 1;";
+	static final String SQL_INSERT = "INSERT INTO `gato` (`nombre`) VALUES (?);";
 
 	@Override
 	public ArrayList<Gato> getAll() {
@@ -89,8 +91,33 @@ public class GatoDAO implements IPersistible<Gato> {
 
 	@Override
 	public boolean create(Gato pojo) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resul = false;
+		if (pojo != null) {
+
+			try (Connection con = ConnectionManager.getConexion();
+					PreparedStatement pst = con.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS)) {
+
+				pst.setString(1, pojo.getNombre());
+
+				// realizar la insert
+				if (pst.executeUpdate() == 1) {
+
+					// recuperar el ID generado
+					ResultSet rs = pst.getGeneratedKeys();
+					while (rs.next()) {
+						int idGenerada = rs.getInt(2);
+						pojo.setId(idGenerada);
+						resul = true;
+					}
+
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+		return resul;
 	}
 
 	@Override

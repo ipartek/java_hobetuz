@@ -27,11 +27,6 @@ public class EjercicicioCrudGatos {
 
 	public static void main(String[] args) {
 
-		// objeto para gestionar el CRUD de los gatos
-
-		dao.create(new Gato(1, "Garfield"));
-		dao.create(new Gato(2, "Mitxi"));
-
 		do {
 			printarMenu();
 
